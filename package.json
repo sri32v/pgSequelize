@@ -1,0 +1,27 @@
+{
+  "name": "docker-tut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.18",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.4",
+    "ps": "^1.0.0",
+    "sequelize": "^6.21.4"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "startMockApi": "node server.js & npx sequelize-cli db:migrate",
+    "migrate": "npx sequelize-cli db:migrate",
+    "down": "npx sequelize-cli db:migrate:undo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  }
+}
