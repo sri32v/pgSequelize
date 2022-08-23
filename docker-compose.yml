@@ -12,16 +12,16 @@ services:
       POSTGRES_USER: docker
     volumes:
       - data:/var/lib/postgresql/data
-  # dbadmin:
-  #   image: "dpage/pgadmin4"
-  #   container_name: pgadmin
-  #   ports:
-  #     - "5555:80"
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-  #   volumes:
-  #     - pgadmin-data:/var/lib/pgadmin
+  dbadmin:
+    image: "dpage/pgadmin4"
+    container_name: pgadmin
+    ports:
+      - "5555:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
   mwserver:
     container_name: mwserver
     build: .
@@ -30,10 +30,8 @@ services:
       - ./app/node_modules
     ports:
       - "5000:5000"
-    environment:
-      - DB_SOURCE=postgresql://docker:123456@postgres:4321/docker?sslmode=disable
     depends_on:
       - db
 volumes:
   data:
-  # pgadmin-data:
+  pgadmin-data:
