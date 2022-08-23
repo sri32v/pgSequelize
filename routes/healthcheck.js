@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { nanoid } = require("nanoid");
 
 /**
  * @swagger
@@ -14,4 +13,4 @@ const { nanoid } = require("nanoid");
  *         description: App is up and running
  */
 router.get("/healthcheck", (req, res) => res.sendStatus(200));
-export default router;
+module.exports = router;

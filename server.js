@@ -35,6 +35,6 @@ const specs = swaggerJsDoc(swaggerOptions);
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
-app.get("/healthChck", healthCheckRouter);
+app.get("/healthcheck", healthCheckRouter);
 
 app.listen(PORT, () => console.log(`Server up at http://localhost:${PORT}`));
